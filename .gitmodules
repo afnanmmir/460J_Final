@@ -1,0 +1,3 @@
+[submodule "lofi-samples"]
+	path = lofi-samples
+	url = https://github.com/nmtremblay/lofi-samples.git

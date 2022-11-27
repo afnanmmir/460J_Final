@@ -1,0 +1,114 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{derivative}
+\usepackage[thinc]{esdiff}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{accents}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+morekeywords={self},              % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+ 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines, 
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{ECE460J}
+\newcommand\hwnumber{2}                  % <-- homework number
+\newcommand\NetIDa{\small Sidharth Babu, Laith Altarabishi}           % <-- NetID of person #1
+\newcommand\NetIDb{\small Afnan Mir, Jonathan Vasilyev}
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}
+  \begin{proof}[Solution]}
+  {\end{proof}}
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+
+\pagestyle{fancyplain}
+\headheight 35pt
+% \lhead{\NetIDa}
+\lhead{\NetIDb \\\NetIDa} % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Project Proposal}}
+\rhead{\small \course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+\begin{document}
+\section*{Objective}
+LoFi music is an important part of almost every college students study routine, especially in our major. For our project, we would like to
+build and train a deep learning model that will be able to generate new LoFi music after listening to a dataset of already created LoFi music. We are 
+planning on building this model from the ground up, meaning no pretrained model will be used. We plan on building a model that will be able to take in and
+output sequential data, whether that be an RNN-LSTM model or a transformer model. 
+
+\section*{Dataset}
+We have found \href{https://github.com/nmtremblay/lofi-samples}{this} dataset on github that contains over one hundred .midi files for LoFi music. We plan on using the sequences of notes and chords in these .midi files to predict
+the next note in the sequence. With this, we can get a new sequence of notes and chords that will represent a new LoFi song.
+\end{document}
