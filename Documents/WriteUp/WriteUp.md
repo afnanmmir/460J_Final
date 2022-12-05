@@ -97,7 +97,9 @@ Note that this is a file containing only notes and chords with no instruments an
 This begins to sound more and more like a song, although there are still some issues.
 
 ## Further Exploration
-After getting this baseline, we attempted to explore a little more. Our exploration included trying a variational autoencoder (VAE) model to generate music.  We try to use a generative model approach rather than a seq2seq model approach to generate our music. 
+After getting this baseline, we attempted to explore a little more. Our exploration included trying a variational autoencoder (VAE) model to generate music. Autoencoders are pairs of two neural networks, an encoder and a decoder model, and it is the job of the encoder to find a way to compress a given input dataset into the latent space - so that the reconstructed output we get later with the decoder is similar to the input. The variational subset of autoencoders have very nice properties that allow for us to reconstruct music from points in the latent space. In contrast to our previous methodology, we try to use a generative model approach rather than a seq2seq model approach to generate our music and compare the results in the end.
+
+Specifically, we used MusicVAE, an open-source, hierarchical recurrent VAE that is provided by Magenta for the underlying model of our code, and trained on the same dataset of lofi music as before. Similarly to our data pre-processing before, we take all of our MIDI files from our data set, and convert them into sequences of notes that can be fed into our model. Once we have our converted sequences, we can then choose a specific music configuration for our network to train on. These configurations ranged from different 2-bar to 16-bar melodies, as well as different instruments being introduced, such as bass and drums. For the purposes of our minimalistic music setting, we decided to configure the network with a simple 2-bar melody configuration and trained it on our lofi dataset.
 
 Using this method, we were able to create the following MIDI file:
 
@@ -107,7 +109,7 @@ and after some editing, we were able to create this final song:
 
 [inser edited song here]
 
-This again, sounds somewhat like an actual song, but it seems we run into the same issues
+This again, sounds somewhat like an actual song, but it seems we run into some of the same issues as before. There are noticeably more complex rhythms than before, but at the cost of inconsistency in the global 'smoothness' of the song - as many measures seem to have very sporadic rhythm. Ultimately, we generated this music by sampling the model a certain amount of times, and perhaps we would have more successful results if we were able to condition the network based on the samples we've drawn thus far (a historical conditioning of sorts). 
 
 ## Conclusion and Reflection
 
